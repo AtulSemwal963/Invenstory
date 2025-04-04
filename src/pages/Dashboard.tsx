@@ -71,6 +71,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import InventoryPage from './Inventory';
 import ForecastingPage from './ForecastingPage'
 import RecommendationsPage from './RecommendationsPage';
+import PricingPage from './PricingPage';
 
 // Mock data for charts and tables
 const salesData = [
@@ -446,7 +447,7 @@ const DashboardHome = () => {
 
 // Placeholder components for the other routes
 // const ForecastingPage = () => <div className="p-6"><h1 className="text-2xl font-bold">Demand Forecasting</h1></div>;
-const PricingPage = () => <div className="p-6"><h1 className="text-2xl font-bold">Pricing Optimization</h1></div>;
+// const PricingPage = () => <div className="p-6"><h1 className="text-2xl font-bold">Pricing Optimization</h1></div>;
 // const RecommendationsPage = () => <div className="p-6"><h1 className="text-2xl font-bold">Personalized Recommendations</h1></div>;
 const ReportsPage = () => <div className="p-6"><h1 className="text-2xl font-bold">Reports & Insights</h1></div>;
 const SettingsPage = () => <div className="p-6"><h1 className="text-2xl font-bold">Settings & Integrations</h1></div>;
