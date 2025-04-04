@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, Routes, Route } from 'react-router-dom';
 import { 
@@ -69,6 +68,9 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useIsMobile } from '@/hooks/use-mobile';
+import InventoryPage from './Inventory';
+import ForecastingPage from './ForecastingPage'
+import RecommendationsPage from './RecommendationsPage';
 
 // Mock data for charts and tables
 const salesData = [
@@ -293,7 +295,9 @@ const DashboardHome = () => {
                     <Progress 
                       value={item.value} 
                       className="h-2" 
-                      indicatorClassName={`bg-[${COLORS[index % COLORS.length]}]`} 
+                      style={{
+                        backgroundColor: COLORS[index % COLORS.length]
+                      }}
                     />
                   </div>
                 ))}
@@ -441,10 +445,9 @@ const DashboardHome = () => {
 };
 
 // Placeholder components for the other routes
-const InventoryPage = () => <div className="p-6"><h1 className="text-2xl font-bold">Inventory Management</h1></div>;
-const ForecastingPage = () => <div className="p-6"><h1 className="text-2xl font-bold">Demand Forecasting</h1></div>;
+// const ForecastingPage = () => <div className="p-6"><h1 className="text-2xl font-bold">Demand Forecasting</h1></div>;
 const PricingPage = () => <div className="p-6"><h1 className="text-2xl font-bold">Pricing Optimization</h1></div>;
-const RecommendationsPage = () => <div className="p-6"><h1 className="text-2xl font-bold">Personalized Recommendations</h1></div>;
+// const RecommendationsPage = () => <div className="p-6"><h1 className="text-2xl font-bold">Personalized Recommendations</h1></div>;
 const ReportsPage = () => <div className="p-6"><h1 className="text-2xl font-bold">Reports & Insights</h1></div>;
 const SettingsPage = () => <div className="p-6"><h1 className="text-2xl font-bold">Settings & Integrations</h1></div>;
 
@@ -562,9 +565,9 @@ const Dashboard = () => {
       </Sidebar>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col w-full">
         {/* Top Navigation */}
-        <header className="h-16 border-b border-white/5 bg-invenstory-dark flex items-center justify-between px-4">
+        <header className="h-16 border-b border-white/5 bg-invenstory-dark flex items-center justify-between px-4 w-full">
           <div className="flex items-center">
             <SidebarTrigger className="md:hidden mr-3" />
             
@@ -663,7 +666,7 @@ const Dashboard = () => {
 
         {/* Mobile Search */}
         {isMobile && mobileMenuOpen && (
-          <div className="px-4 py-3 border-b border-white/5 animate-fade-in">
+          <div className="px-4 py-3 border-b border-white/5 animate-fade-in w-full">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
               <Input 
@@ -676,16 +679,18 @@ const Dashboard = () => {
         )}
 
         {/* Main Content Area */}
-        <main className="flex-1 overflow-auto p-6">
-          <Routes>
-            <Route index element={<DashboardHome />} />
-            <Route path="inventory" element={<InventoryPage />} />
-            <Route path="forecasting" element={<ForecastingPage />} />
-            <Route path="pricing" element={<PricingPage />} />
-            <Route path="recommendations" element={<RecommendationsPage />} />
-            <Route path="reports" element={<ReportsPage />} />
-            <Route path="settings" element={<SettingsPage />} />
-          </Routes>
+        <main className="flex-1 overflow-auto p-6 w-full">
+          <div className="w-full max-w-full">
+            <Routes>
+              <Route index element={<DashboardHome />} />
+              <Route path="inventory" element={<InventoryPage />} />
+              <Route path="forecasting" element={<ForecastingPage />} />
+              <Route path="pricing" element={<PricingPage />} />
+              <Route path="recommendations" element={<RecommendationsPage />} />
+              <Route path="reports" element={<ReportsPage />} />
+              <Route path="settings" element={<SettingsPage />} />
+            </Routes>
+          </div>
         </main>
       </div>
     </div>

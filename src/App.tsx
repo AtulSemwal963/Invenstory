@@ -9,6 +9,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 // Pages
 import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
+import Inventory from "./pages/Inventory";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
@@ -31,6 +32,14 @@ const App = () => (
               </SidebarProvider>
             } 
           />
+            {/* <Route 
+            path="/inventory/*" 
+            element={
+              <SidebarProvider>
+                <Inventory />
+              </SidebarProvider>
+            } 
+          /> */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
